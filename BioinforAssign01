@@ -1,0 +1,58 @@
+Bioinformatics Assignment 01
+
+Ty Tran
+
+Step 1: Download Split_contigs.zip to the computer
+Step 2: Unzip Split_contigs.zip
+Step 3: Get into: Finder -> Application -> Utilities (bottom) -> Terminal
+Step 4: Combine all 360 contigs of Split_contigs.zip into one file
+
+Step 5: Make sure direction is at Genome (directory includes Split_contigs)
+Navigate
+$ pwd
+$ cd /Users/Genome/Split_contigs 
+
+Step 6: Using "cat": 
+$ cat contig* > CombinedContigs
+
+Step 7: Counting by "grep"
+Count number of As
+$ grep -v "^>" CombinedContigs | grep -o A | wc -l 
+Result: 1075568
+
+Count number of Ts
+$ grep -v "^>" CombinedContigs | grep -o T | wc -l 
+Result: 1083540
+
+Count number of Gs
+$ grep -v "^>" CombinedContigs | grep -o G | wc -l 
+Result: 2164972
+
+Count number of Cs
+$ grep -v "^>" CombinedContigs | grep -o C | wc -l 
+Result: 2158760
+
+Step 8: Applying "echo" 
+$ number1=1075568
+$ number2=1083540
+$ number3=2164972
+$ number4=2158760
+
+Echo to calculate total nucleotides
+$ echo $((number1+number2+number3+number4))
+Result: 6482840
+
+Echo to calculate total GCs
+$ echo $((number3+number4))
+Result: 4323732
+
+$ number34=4323732
+$ number1234=6482840
+
+Echo to calculate the % GC content
+$ echo $((number34*100/number1234))
+Result: 66
+
+Step 9: Calculating the overall genome sequencing coverage.
+
+
